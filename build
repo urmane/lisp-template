@@ -1,0 +1,25 @@
+#!/bin/sh
+
+# This is from qtools: doesn't work
+#sbcl --eval "(asdf:operate :build-op :lisp-template :force T)"
+
+# This is from deploy, and it works (if you set it up in your asd file)
+echo Compiling with asdf via deploy:
+echo
+echo -------------------------------
+echo NB: on OSX this will hang with:
+echo '   <LIBRARY LIBOSICAT> does not have a known shared library file path.'
+echo '   <bunch of other messages>'
+echo
+echo Hit 1 to continue, and it appears to gen a binary just fine
+echo -------------------------------
+echo
+sleep 3
+# The --quit option is here because without it you'll be dumped to the
+# repl prompt if the binary already exists 
+sbcl --eval '(asdf:make :lisp-template)' --quit
+
+# This is roswell, and it works (if your roswell script works):
+echo -------------------------------
+echo Compiling with roswell:
+ros dump executable roswell/lisp-template.ros -o lisp-template
