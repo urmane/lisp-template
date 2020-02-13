@@ -1,0 +1,17 @@
+# Qlot configuration file
+#
+# Use this when a library must be a specific version
+#
+# To prep a project to use Qlot:
+# 1. Add a file called qlfile to project root dir
+# 2. Execute " (ql:quickload :qlot) "
+# 3. Execute " (qlot:install :your-project) "
+# 4. Put qlfile and qlfile.lock under version control
+# 4a.   Ignore the created quicklisp directory from version control
+# 5. Execute " (qlot:quickload :your-project) "
+# 5a.   From now on, use qlot:quickload instead of ql:quickload
+#
+# file format:
+# <source> <project-name> [arg1, arg2, ...]
+# See https://github.com/fukamachi/qlot for details
+ql cl-json 2014-12-17

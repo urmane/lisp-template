@@ -1,0 +1,20 @@
+#!/bin/sh
+#|-*- mode:lisp -*-|#
+#| <Put a one-line description here>
+exec ros -Q -- $0 "$@"
+|#
+
+;(load "src/hello-world-package.lisp")
+;(load "src/main.lisp")
+;(in-package #:hello-world)
+;(main ())
+
+
+(in-package :cl-user)
+;; Configure ASDF to find the project systems
+(load "src/prep-quicklisp.lisp")
+;; Load the server
+(ql:quickload :qlot)
+(qlot:quickload :hello-world)
+;; Go
+(hello-world:main ())
